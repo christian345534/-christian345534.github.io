@@ -9,19 +9,19 @@
 <body>
     <div class="container">
         <h1>Простой Кликер</h1>
-        <button id="clickButton">Нажми меня!<span id="counter"></span></button>
+        <button id="clickButton" onclick="incrementCounter()">Нажми меня!<span id="counter">0</span></button>
     </div>
 
     <script>
-        let count = 0;
-        document.getElementById('clickButton').addEventListener('click', function() {
+        function incrementCounter() {
+            let count = parseInt(document.getElementById('counter').innerText);
             count++;
             document.getElementById('counter').innerText = count;
-            document.getElementById('clickButton').classList.add('clicked');
-            setTimeout(function() {
-                document.getElementById('clickButton').classList.remove('clicked');
-            }, 300);
-        });
+
+            // Ваш JavaScript для отправки запроса на сервер для обновления количества нажатий
+            // Например, с использованием fetch или XMLHttpRequest
+            // После успешного обновления количества, обновите значение счетчика на странице
+        }
     </script>
 </body>
 </html>
