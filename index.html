@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Кликер</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Простой Кликер</h1>
+        <button id="clickButton">Нажми меня!<span id="counter"></span></button>
+    </div>
+
+    <script>
+        let count = 0;
+        document.getElementById('clickButton').addEventListener('click', function() {
+            count++;
+            document.getElementById('counter').innerText = count;
+            document.getElementById('clickButton').classList.add('clicked');
+            setTimeout(function() {
+                document.getElementById('clickButton').classList.remove('clicked');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
