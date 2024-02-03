@@ -13,6 +13,8 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
         let count = 0;
         document.getElementById('clickButton').addEventListener('click', function() {
             count++;
