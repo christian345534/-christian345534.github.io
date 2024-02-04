@@ -5,9 +5,9 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('your-background-image.jpg'); /* замените на свою картинку */
     background-size: cover;
     background-position: center;
+    background-color: #a161dd;
 }
 
 .container {
@@ -16,35 +16,57 @@ body {
 
 h1 {
     color: #333;
+    font-size: 3em;
 }
 
 button {
     padding: 30px 60px;
-    font-size: 48px;
+    font-size: 4em;
     cursor: pointer;
-    background-color: #FFD700; /* желтый цвет */
+    background: #FFD700;
     color: white;
     border: none;
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    position: relative; /* позиционируем счетчик относительно кнопки */
-    transition: all 0.2s; /* добавляем анимацию */
+    position: relative;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    padding: 5px;
+    background: #f7f7f7;
+    background: url('coin.png') no-repeat center;
+    mask-size: cover;
 }
 
 button:hover {
-    background-color: #FFC800; /* изменение цвета при наведении */
+    background-color: #FFC800;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
 }
 
 #counter {
-    font-size: 24px;
+    font-size: 2em;
     color: #666;
-    position: absolute; /* абсолютное позиционирование счетчика */
-    top: 50%; /* размещаем счетчик по вертикали по центру */
-    left: 50%; /* размещаем счетчик по горизонтали по центру */
-    transform: translate(-50%, -50%); /* центрируем счетчик относительно кнопки */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .clicked {
-    transform: scale(0.95); /* уменьшаем размер при нажатии */
+    transform: scale(0.95);
 }
