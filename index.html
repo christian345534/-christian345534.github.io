@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Clicker</h1>
-        <button id="clickButton">Нажми меня!<span id="counter"></span></button>
+        <button id="clickButton">Нажми меня!<span id="counter">0</span></button>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -23,6 +23,9 @@
             setTimeout(function() {
                 document.getElementById('clickButton').classList.remove('clicked');
             }, 300);
+        });
+
+        window.addEventListener('beforeunload', function(event) {
             let data = {
                 c: count
             };
