@@ -31,5 +31,6 @@ button:active {
 }
 
 .greeting {
+  font-size: 42px;
   font-family: 'Open Sans', sans-serif;
 }
