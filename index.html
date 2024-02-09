@@ -22,10 +22,9 @@
 <script>
   let tg = window.Telegram.WebApp;
   tg.expand();
-  // let userid = document.createElement('p');
-  // userid.innerText = `${tg.initDataUnsafe.user.first_name}`;
-  // usercard.appendChild(userid);
-  // const firstName = window.TGMeUser.first_name;
+  let userid = document.createElement('p');
+  userid.innerText = `${tg.initDataUnsafe.user.first_name}`;
+  usercard.appendChild(userid);
   const greeting = document.querySelector('.greeting');
   greeting.textContent = `Привет, ${tg.initDataUnsafe.user.first_name}!`;
 </script>
