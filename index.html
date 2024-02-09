@@ -24,7 +24,7 @@
   let tg = window.Telegram.WebApp;
   tg.expand();
   let greeting = document.getElementById("greeting");
-  let profName = document.createElement('p');
+  let profName = document.createElement('h1');
   profName.innerText = `Привет, ${tg.initDataUnsafe.user.first_name}`;
   profName.style.fontSize = "58px";
   greeting.appendChild(profName);
