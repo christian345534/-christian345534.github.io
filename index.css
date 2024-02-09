@@ -10,12 +10,12 @@ body {
 }
 
 button {
-  font-size: 64px;
+  font-size: 60px;
   font-family: 'Roboto Condensed', sans-serif;
   background: #1E1E1E;
   border-radius:20px;
   color: white;
-  padding: 10px 60px;
+  padding: 8px 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* добавляем тень */
   transition: transform 0.3s ease;
@@ -31,6 +31,6 @@ button:active {
 }
 
 .greeting {
-  font-size: 64px;
+  font-size: 60px;
   font-family: 'Open Sans', sans-serif;
 }
