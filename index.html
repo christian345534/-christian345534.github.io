@@ -13,22 +13,6 @@
   <title>EGE dlya pidorov</title>
 </head>
 
-<!-- <body>
-  <div class='greeting'></div>
-  <button class='play'> Играть </button>
-  <button class='statistics'> Статистика </button>
-  <button class='rating'> Рейтинг </button>
-</body>
-<script>
-  let tg = window.Telegram.WebApp;
-  tg.expand();
-  let userid = document.createElement('p');
-  userid.innerText = `${tg.initDataUnsafe.user.first_name}`;
-  usercard.appendChild(userid);
-  const greeting = document.querySelector('.greeting');
-  greeting.textContent = `Привет, ${tg.initDataUnsafe.user.first_name}!`;
-</script> -->
-
 <body>
   <div id="greeting"></div>
   <button id="play" class="button">Играть</button>
@@ -37,41 +21,12 @@
 </body>
 
 <script>
-  let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
-  tg.expand(); //расширяем на все окно  
-  // let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать 
-
-  // btn.addEventListener('click', function () { //вешаем событие на нажатие html-кнопки
-  //   if (tg.MainButton.isVisible) { //если кнопка показана 
-  //     tg.MainButton.hide() //скрываем кнопку 
-  //   }
-  //   else { //иначе
-  //     tg.MainButton.show() //показываем 
-  //   }
-  // });
-
-  // let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-  // btnED.addEventListener('click', function () { //вешаем событие на нажатие html-кнопки
-  //   if (tg.MainButton.isActive) { //если кнопка показана 
-  //     tg.MainButton.setParams({ "color": "#E0FFFF" }); //меняем цвет
-  //     tg.MainButton.disable() //скрываем кнопку 
-  //   }
-  //   else { //иначе
-  //     tg.MainButton.setParams({ "color": "#143F6B" }); //меняем цвет
-  //     tg.MainButton.enable() //показываем 
-  //   }
-  // });
-
-  // Telegram.WebApp.onEvent('mainButtonClicked', function () {
-  //   tg.sendData("some string that we need to send");
-  //   //при клике на основную кнопку отправляем данные в строковом виде
-  // });
-
-
-  let greeting = document.getElementById("greeting"); //получаем блок greeting 
-
+  let tg = window.Telegram.WebApp;
+  tg.expand();
+  let greeting = document.getElementById("greeting");
   let profName = document.createElement('p');
   profName.innerText = `Привет, ${tg.initDataUnsafe.user.first_name}`;
+  profName.style.fontSize = "58px";
   greeting.appendChild(profName);
 </script>
 
