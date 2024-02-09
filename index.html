@@ -20,9 +20,14 @@
   <button class='rating'> Рейтинг </button>
 </body>
 <script>
-  const firstName = window.TGMeUser.first_name;
+  let tg = window.Telegram.WebApp;
+  tg.expand();
+  // let userid = document.createElement('p');
+  // userid.innerText = `${tg.initDataUnsafe.user.first_name}`;
+  // usercard.appendChild(userid);
+  // const firstName = window.TGMeUser.first_name;
   const greeting = document.querySelector('.greeting');
-  greeting.textContent = `Привет, ${firstName}!`;
+  greeting.textContent = `Привет, ${tg.initDataUnsafe.user.first_name}!`;
 </script>
 
 </html>
