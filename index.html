@@ -60,6 +60,7 @@
 <script>
   let tg = window.Telegram.WebApp;
   tg.expand();
+  tg.BackButton.hide();
   let greeting = document.getElementById("greeting");
   let profName = document.createElement('h2');
   profName.innerText = `Привет, ${tg.initDataUnsafe.user.first_name}`;
