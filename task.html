@@ -118,6 +118,9 @@
     let timerElement = document.getElementById("timer");
     let timeLeft = 30;
     tg.BackButton.show();
+    tg.onBackButtonClick(() => {
+    window.history.back();
+    });
     const countdown = setInterval(() => {
       timeLeft--;
       timerElement.innerText = timeLeft;

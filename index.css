@@ -14,11 +14,10 @@ button {
   font-size: 58px;
   font-family: 'Roboto Condensed', sans-serif;
   /* background: #1E1E1E; */
-  background: white;
   border-radius: 20px;
   /* color: white; */
   color: var(--tg-theme-button-text-color);
-  /* background: var(--tg-theme-button-color); */
+  background: var(--tg-theme-button-color);
   padding: 8px 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* добавляем тень */
@@ -54,7 +53,7 @@ input::-webkit-inner-spin-button {
 input {
   width: 176px;
   height: 50px;
-  background: var(--tg-theme-hint-color);
+  background: #D9D9D9;
   border-radius: 20px;
   font-size: 32px;
 }
@@ -76,11 +75,10 @@ input {
   top: 30px;
   right: 35px;
   transition: color 0.3s;
-  color: var(--tg-theme-accent-text-color);
 }
 
 .red {
-  color: var(--tg-theme-destructive-text-color);
+  color: red;
   animation: blinker 0.7s linear infinite;
   font-size: 58px;
 }
@@ -89,8 +87,4 @@ input {
   50% {
     opacity: 0;
   }
-}
-
-.text{
-  color: var(--tg-theme-subtitle-text-color);
 }
