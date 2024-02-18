@@ -120,7 +120,9 @@
     let timerElement = document.getElementById("timer");
     let timeLeft = 30;
     tg.BackButton.show();
-    tg.BackButton.onClick(callback);
+    Telegram.WebApp.onEvent('backButtonClicked', function(){
+      window.location.href = 'index.html';
+   });
     const countdown = setInterval(() => {
       timeLeft--;
       timerElement.innerText = timeLeft;
