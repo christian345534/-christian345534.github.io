@@ -21,7 +21,7 @@
       height: 100vh;
       margin: 0;
       gap: 40px;
-      color: var(--tg-theme-bg-color);
+      background-color: var(--tg-theme-bg-color);
     }
 
     button {
@@ -29,6 +29,7 @@
       font-family: 'Roboto Condensed', sans-serif;
       background: var(--tg-theme-bg-color);
       border-radius: 20px;
+      border-color: var(--tg-theme-text-color);
       color: var(--tg-theme-text-color);
       padding: 8px 30px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -46,13 +47,12 @@
     .greeting {
       font-family: 'Open Sans', sans-serif;
       color: var(--tg-theme-text-color);
-      ;
     }
   </style>
 </head>
 
 <body>
-  <div id="greeting"></div>
+  <div id="greeting" class="greeting"></div>
   <button id="play" class="button" onclick="window.location.href = 'task.html'">Играть</button>
   <button id="'rating" class="button">Рейтинг</button>
 </body>
