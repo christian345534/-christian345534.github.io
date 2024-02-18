@@ -1,51 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
-    <title>task</title>
-  </head>
-  <body>
-    <div class="timer" id="timer">30</div>
-    <div class="task_text" id="taskText">В фирме такси в данный момент свободно 15 машин: 2 красных, 9 желтых и 4 зеленых. По вызову выехала одна из машин, случайно оказавшихся ближе всего к заказчице. Найдите вероятность того, что к ней приедет желтое такси</div>
-    <div class="answer">
-      <input type="number" id="answerInput" />
-      <button id="play" class="send">Ответить</button>
-    </div>
 
-    <script>
-      let tg = window.Telegram.WebApp;
-      tg.expand();
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
+  <title>task</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto Condensed', sans-serif;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      gap: 40px;
+      color: var(--tg-theme-bg-color);
+    }
 
-      let timerElement = document.getElementById("timer");
-      let timeLeft = 30;
+    button {
+      font-size: 58px;
+      font-family: 'Roboto Condensed', sans-serif;
+      /* background: #1E1E1E; */
+      background: white;
+      border-radius: 20px;
+      /* color: white; */
+      color: var(--tg-theme-button-text-color);
+      /* background: var(--tg-theme-button-color); */
+      padding: 8px 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* добавляем тень */
+      transition: transform 0.3s ease;
+    }
 
-      const countdown = setInterval(() => {
-        timeLeft--;
-        timerElement.innerText = timeLeft;
+    button:hover {
+      transform: scale(1.05);
+    }
 
-        if (timeLeft < 10) {
-          timerElement.classList.add("red");
-        }
+    button:active {
+      transform: scale(0.95);
+    }
 
-        if (timeLeft === 0) {
-          clearInterval(countdown);
-          // Дополнительные действия по достижении времени
-        }
-      }, 1000);
-    </script>
-  </body>
+    .greeting {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .answer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0;
+      /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input {
+      width: 176px;
+      height: 50px;
+      background: var(--tg-theme-hint-color);
+      border-radius: 20px;
+      font-size: 32px;
+    }
+
+    .send {
+      font-size: 32px;
+    }
+
+    .task_text {
+      font-size: 24px;
+      text-align: center;
+      max-width: 70%;
+      color: var(--tg-theme-text-color);
+    }
+
+    .timer {
+      font-size: 54px;
+      position: fixed;
+      top: 30px;
+      right: 35px;
+      transition: color 0.3s;
+      color: var(--tg-theme-accent-text-color);
+    }
+
+    .red {
+      color: var(--tg-theme-destructive-text-color);
+      animation: blinker 0.7s linear infinite;
+      font-size: 58px;
+    }
+
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .text {
+      color: var(--tg-theme-subtitle-text-color);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="timer" id="timer">30</div>
+  <div class="task_text" id="taskText">В фирме такси в данный момент свободно 15 машин: 2 красных, 9 желтых и 4 зеленых.
+    По вызову выехала одна из машин, случайно оказавшихся ближе всего к заказчице. Найдите вероятность того, что к ней
+    приедет желтое такси</div>
+  <div class="answer">
+    <input type="number" id="answerInput" />
+    <button id="play" class="send">Ответить</button>
+  </div>
+
+  <script>
+    let tg = window.Telegram.WebApp;
+    tg.expand();
+
+    let timerElement = document.getElementById("timer");
+    let timeLeft = 30;
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timerElement.innerText = timeLeft;
+
+      if (timeLeft < 10) {
+        timerElement.classList.add("red");
+      }
+
+      if (timeLeft === 0) {
+        clearInterval(countdown);
+        // Дополнительные действия по достижении времени
+      }
+    }, 1000);
+  </script>
+</body>
+
 </html>
