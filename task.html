@@ -28,15 +28,11 @@
     button {
       font-size: 58px;
       font-family: 'Roboto Condensed', sans-serif;
-      /* background: #1E1E1E; */
-      background: white;
+      background: var(--tg-theme-bg-color);
       border-radius: 20px;
-      /* color: white; */
-      color: var(--tg-theme-button-text-color);
-      /* background: var(--tg-theme-button-color); */
+      color: var(--tg-theme-text-color);
       padding: 8px 30px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      /* добавляем тень */
       transition: transform 0.3s ease;
     }
 
@@ -48,10 +44,6 @@
       transform: scale(0.95);
     }
 
-    .greeting {
-      font-family: 'Open Sans', sans-serif;
-    }
-
     .answer {
       display: flex;
       flex-wrap: wrap;
@@ -61,16 +53,14 @@
 
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
-      /* display: none; <- Crashes Chrome on hover */
       -webkit-appearance: none;
       margin: 0;
-      /* <-- Apparently some margin are still there even though it's hidden */
     }
 
     input {
       width: 176px;
       height: 50px;
-      background: var(--tg-theme-hint-color);
+      background: var(--tg-theme-subtitle-text-color);;
       border-radius: 20px;
       font-size: 32px;
     }
@@ -92,11 +82,11 @@
       top: 30px;
       right: 35px;
       transition: color 0.3s;
-      color: var(--tg-theme-accent-text-color);
+      color: var(--tg-theme-text-color);
     }
 
     .red {
-      color: var(--tg-theme-destructive-text-color);
+      color: red;
       animation: blinker 0.7s linear infinite;
       font-size: 58px;
     }
@@ -105,10 +95,6 @@
       50% {
         opacity: 0;
       }
-    }
-
-    .text {
-      color: var(--tg-theme-subtitle-text-color);
     }
   </style>
 </head>
