@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
+    <title>task</title>
+  </head>
+  <body>
+    <div class="timer" id="timer">30</div>
+    <div class="task_text" id="taskText">В фирме такси в данный момент свободно 15 машин: 2 красных, 9 желтых и 4 зеленых. По вызову выехала одна из машин, случайно оказавшихся ближе всего к заказчице. Найдите вероятность того, что к ней приедет желтое такси</div>
+    <div class="answer">
+      <input type="number" id="answerInput" />
+      <button id="play" class="send">Ответить</button>
+    </div>
+
+    <script>
+      let tg = window.Telegram.WebApp;
+      tg.expand();
+
+      let timerElement = document.getElementById("timer");
+      let timeLeft = 30;
+
+      const countdown = setInterval(() => {
+        timeLeft--;
+        timerElement.innerText = timeLeft;
+
+        if (timeLeft < 10) {
+          timerElement.classList.add("red");
+        }
+
+        if (timeLeft === 0) {
+          clearInterval(countdown);
+          // Дополнительные действия по достижении времени
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

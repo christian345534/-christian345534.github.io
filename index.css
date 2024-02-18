@@ -7,14 +7,17 @@ body {
   height: 100vh;
   margin: 0;
   gap: 40px;
+  color: var(--tg-theme-bg-color);
 }
 
 button {
   font-size: 58px;
   font-family: 'Roboto Condensed', sans-serif;
-  background: #1E1E1E;
-  border-radius:20px;
-  color: white;
+  /* background: #1E1E1E; */
+  border-radius: 20px;
+  /* color: white; */
+  color: var(--tg-theme-button-text-color);
+  background: var(--tg-theme-button-color);
   padding: 8px 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* добавляем тень */
@@ -27,9 +30,61 @@ button:hover {
 
 button:active {
   transform: scale(0.95);
-  background: #333;
+  background: #d6d6d6;
 }
 
 .greeting {
   font-family: 'Open Sans', sans-serif;
+}
+
+.answer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input {
+  width: 176px;
+  height: 50px;
+  background: #D9D9D9;
+  border-radius: 20px;
+  font-size: 32px;
+}
+
+.send {
+  font-size: 32px;
+}
+
+.task_text {
+  font-size: 24px;
+  text-align: center;
+  max-width: 70%;
+}
+
+.timer {
+  font-size: 54px;
+  position: fixed;
+  top: 30px;
+  right: 35px;
+  transition: color 0.3s;
+}
+
+.red {
+  color: red;
+  animation: blinker 0.7s linear infinite;
+  font-size: 58px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
